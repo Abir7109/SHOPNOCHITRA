@@ -1,0 +1,2 @@
+1. Form submissions appear in Netlify function logs (https://app.netlify.com/projects/shopnochitra/logs/functions) — no email/WhatsApp notification yet; can add later.
+2. If you ever buy shopnochitra.com and attach it in Netlify, tell me — I'll swap all URLs back so SEO follows the custom domain.
