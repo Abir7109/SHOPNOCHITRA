@@ -11,3 +11,6 @@ coverage/
 Thumbs.db
 desktop.ini
 website/data/
+
+# Local Netlify folder
+.netlify

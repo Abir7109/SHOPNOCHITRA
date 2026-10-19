@@ -1,0 +1,51 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/book-a-call"
+  to = "/.netlify/functions/book-a-call"
+  status = 200
+
+[[redirects]]
+  from = "/api/contact"
+  to = "/.netlify/functions/book-a-call"
+  status = 200
+
+[[redirects]]
+  from = "/packages"
+  to = "/pages/packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/pages/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/pages/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/pages/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/coming-soon"
+  to = "/pages/coming-soon.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/pages/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/pages/blog/:slug.html"
+  status = 200
