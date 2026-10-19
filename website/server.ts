@@ -20,7 +20,15 @@ async function startServer() {
   });
 
   app.post(['/api/contact', '/api/book-a-call'], (req, res) => {
-    console.log('Inquiry received:', req.body);
+    const inquiry = { receivedAt: new Date().toISOString(), ...req.body };
+    console.log('Inquiry received:', inquiry);
+    try {
+      const dataDir = path.join(process.cwd(), 'data');
+      fs.mkdirSync(dataDir, { recursive: true });
+      fs.appendFileSync(path.join(dataDir, 'inquiries.jsonl'), JSON.stringify(inquiry) + '\n', 'utf8');
+    } catch (err) {
+      console.error('Failed to persist inquiry:', err);
+    }
     res.json({
       success: true,
       message: 'Thank you for your interest in Shopno Chitra. A private sales advisor will contact you shortly.'
