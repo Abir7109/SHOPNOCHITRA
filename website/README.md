@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Shopno Chitra — Website
 
-# Run and deploy your AI Studio app
+Official website for Shopno Chitra, a wedding photography studio based in Mohammadpur, Dhaka.
 
-This contains everything you need to run your app locally.
+Captured with heart — wedding, ceremony and couple photography across Bangladesh and beyond.
 
-View your app in AI Studio: https://ai.studio/apps/e4a168ad-3491-4b7c-86a6-36299be15819
+## Stack
 
-## Run Locally
+- Static HTML pages (Webflow-exported design system) in `index.html` and `public/pages/`
+- Express + Vite dev/production server (`server.ts`) for routing and inquiry handling
 
-**Prerequisites:**  Node.js
+## Scripts
 
+| Command | Description |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at http://localhost:8080 |
+| `npm run build` | Build for production (outputs to `dist/`) |
+| `npm run start` | Run the production build |
+| `npm run lint` | Type-check with `tsc --noEmit` |
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Pages & routes
+
+| Route | File |
+| --- | --- |
+| `/` | `index.html` |
+| `/packages` | `public/pages/packages.html` |
+| `/contact` | `public/pages/contact.html` |
+| `/privacy` | `public/pages/privacy.html` |
+| `/terms` | `public/pages/terms.html` |
+| `/coming-soon` | `public/pages/coming-soon.html` |
+
+`public/sitemap.xml` and `public/robots.txt` are served as static files. Update the domain
+in these files (and the canonical/og URLs) if the production domain changes.
+
+## Booking form
+
+The "Book a call" form on all pages posts JSON to `/api/book-a-call`. Inquiries are appended
+to `data/inquiries.jsonl` (git-ignored) and logged to the server console. `/api/contact`
+is an alias endpoint.
+
+## Contact
+
+- Email: shopnochitra@gmail.com
+- Phone / WhatsApp: +880 1830-711094
+- Studio: Mohammadpur, Dhaka, Bangladesh
+
+---
+
+Designed & developed by [R M Abir](https://rmabir71.vercel.app/)

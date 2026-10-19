@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /coming-soon
+
+Sitemap: https://www.shopnochitra.com/sitemap.xml

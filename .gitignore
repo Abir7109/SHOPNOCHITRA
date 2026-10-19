@@ -3,6 +3,7 @@ dist/
 build/
 coverage/
 *.log
+*.bak
 .env
 .env.*
 !.env.example

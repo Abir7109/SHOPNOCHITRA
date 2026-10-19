@@ -31,7 +31,7 @@ async function startServer() {
     }
     res.json({
       success: true,
-      message: 'Thank you for your interest in Shopno Chitra. A private sales advisor will contact you shortly.'
+      message: 'Thank you for your interest in Shopno Chitra. Our studio team will contact you shortly.'
     });
   });
 
@@ -48,10 +48,6 @@ async function startServer() {
     res.redirect('/');
   });
 
-  app.get('/apartments', (_req, res) => {
-    res.redirect('/packages');
-  });
-
   app.get('/contact', (_req, res) => {
     const file = path.join(getPagesDir(), 'contact.html');
     if (fs.existsSync(file)) return res.sendFile(file);
@@ -64,8 +60,16 @@ async function startServer() {
     res.redirect('/');
   });
 
-  app.get('/apartments/:id', (_req, res) => {
-    res.redirect('/packages');
+  app.get('/privacy', (_req, res) => {
+    const file = path.join(getPagesDir(), 'privacy.html');
+    if (fs.existsSync(file)) return res.sendFile(file);
+    res.redirect('/');
+  });
+
+  app.get('/terms', (_req, res) => {
+    const file = path.join(getPagesDir(), 'terms.html');
+    if (fs.existsSync(file)) return res.sendFile(file);
+    res.redirect('/');
   });
 
   // Vite development middleware or production static server
