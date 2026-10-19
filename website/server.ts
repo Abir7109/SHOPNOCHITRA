@@ -72,6 +72,20 @@ async function startServer() {
     res.redirect('/');
   });
 
+  app.get('/blog', (_req, res) => {
+    const file = path.join(getPagesDir(), 'blog', 'index.html');
+    if (fs.existsSync(file)) return res.sendFile(file);
+    res.redirect('/');
+  });
+
+  app.get('/blog/:slug', (req, res) => {
+    const slug = String(req.params.slug || '');
+    if (!/^[a-z0-9-]+$/.test(slug)) return res.redirect('/blog');
+    const file = path.join(getPagesDir(), 'blog', slug + '.html');
+    if (fs.existsSync(file)) return res.sendFile(file);
+    res.redirect('/blog');
+  });
+
   // Vite development middleware or production static server
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
